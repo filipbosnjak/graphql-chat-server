@@ -1,0 +1,41 @@
+{
+  "version": "6",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1716630052726,
+      "tag": "0000_black_riptide",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1716631049872,
+      "tag": "0001_broad_christian_walker",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1716631506034,
+      "tag": "0002_naive_garia",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1716640380345,
+      "tag": "0003_overjoyed_zaladane",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1716824208245,
+      "tag": "0004_unknown_wallop",
+      "breakpoints": true
+    }
+  ]
+}

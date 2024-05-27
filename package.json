@@ -1,0 +1,45 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"node dist/src/index.js\"",
+    "db:generate": "drizzle-kit generate:pg --schemas db/schema.ts --out ./drizzle",
+    "codegen": "graphql-codegen",
+    "build": "graphql-codegen && tsc -p .",
+    "start": "node dist/src/index.js"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.7",
+    "@graphql-codegen/typescript-resolvers": "^4.1.0",
+    "@types/bcrypt": "^5.0.2",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.21.4",
+    "prettier": "^3.2.5",
+    "tsc": "^2.0.4",
+    "tsc-watch": "^6.2.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.10.4",
+    "@axelspringer/graphql-google-pubsub": "^2.1.0",
+    "@graphql-tools/schema": "^10.0.3",
+    "@neondatabase/serverless": "^0.9.3",
+    "@solace-community/graphql-solace-subscriptions": "^1.0.6",
+    "add": "^2.0.6",
+    "apollo-server": "^3.13.0",
+    "apollo-server-express": "^3.13.0",
+    "bcrypt": "^5.1.1",
+    "drizzle-orm": "^0.30.10",
+    "express": "^4.19.2",
+    "graphql": "^16.8.1",
+    "graphql-redis-subscriptions": "^2.6.1",
+    "graphql-ws": "^5.16.0",
+    "pg": "^8.11.5",
+    "subscriptions-transport-ws": "^0.11.0",
+    "ws": "^8.17.0",
+    "yarn": "^1.22.22"
+  }
+}

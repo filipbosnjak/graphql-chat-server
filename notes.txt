@@ -1,0 +1,18 @@
+migrate: yarn drizzle-kit generate
+
+apply migrations: npx drizzle-kit push
+
+
+Push image to google artifact registry:
+
+create repository at google artifact registry
+
+in cli:
+
+gcloud auth login
+
+gcloud auth configure-docker europe-west12-docker.pkg.de
+
+docker tag image-local location/projectId/repository/image
+
+docker push location/projectId/repository/image
