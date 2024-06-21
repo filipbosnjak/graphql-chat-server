@@ -28,6 +28,12 @@ export type AuthResponse = {
   message: Scalars['String']['output'];
 };
 
+export type LoginResponse = {
+  __typename?: 'LoginResponse';
+  accessToken: Scalars['String']['output'];
+  user: User;
+};
+
 export type Message = {
   __typename?: 'Message';
   dateSent: Scalars['Date']['output'];
@@ -45,7 +51,8 @@ export type MessageInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  login: AuthResponse;
+  login: LoginResponse;
+  logout?: Maybe<Scalars['Boolean']['output']>;
   register: AuthResponse;
   sendMessage: SendResponse;
 };
@@ -179,6 +186,7 @@ export type ResolversTypes = {
   AuthResponse: ResolverTypeWrapper<AuthResponse>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   Date: ResolverTypeWrapper<Scalars['Date']['output']>;
+  LoginResponse: ResolverTypeWrapper<LoginResponse>;
   Message: ResolverTypeWrapper<Message>;
   MessageInput: MessageInput;
   Mutation: ResolverTypeWrapper<{}>;
@@ -195,6 +203,7 @@ export type ResolversParentTypes = {
   AuthResponse: AuthResponse;
   Boolean: Scalars['Boolean']['output'];
   Date: Scalars['Date']['output'];
+  LoginResponse: LoginResponse;
   Message: Message;
   MessageInput: MessageInput;
   Mutation: {};
@@ -215,6 +224,12 @@ export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes
   name: 'Date';
 }
 
+export type LoginResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['LoginResponse'] = ResolversParentTypes['LoginResponse']> = {
+  accessToken?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type MessageResolvers<ContextType = any, ParentType extends ResolversParentTypes['Message'] = ResolversParentTypes['Message']> = {
   dateSent?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -225,7 +240,8 @@ export type MessageResolvers<ContextType = any, ParentType extends ResolversPare
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  login?: Resolver<ResolversTypes['AuthResponse'], ParentType, ContextType, RequireFields<MutationLoginArgs, 'loginInput'>>;
+  login?: Resolver<ResolversTypes['LoginResponse'], ParentType, ContextType, RequireFields<MutationLoginArgs, 'loginInput'>>;
+  logout?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   register?: Resolver<ResolversTypes['AuthResponse'], ParentType, ContextType, RequireFields<MutationRegisterArgs, 'registerInput'>>;
   sendMessage?: Resolver<ResolversTypes['SendResponse'], ParentType, ContextType, RequireFields<MutationSendMessageArgs, 'message'>>;
 };
@@ -255,6 +271,7 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
 export type Resolvers<ContextType = any> = {
   AuthResponse?: AuthResponseResolvers<ContextType>;
   Date?: GraphQLScalarType;
+  LoginResponse?: LoginResponseResolvers<ContextType>;
   Message?: MessageResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;

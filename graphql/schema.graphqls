@@ -21,7 +21,8 @@ scalar Date
 
 type Mutation {
     register(registerInput: AuthInput!): AuthResponse!
-    login(loginInput: AuthInput!): AuthResponse!
+    login(loginInput: AuthInput!): LoginResponse!
+    logout: Boolean
     sendMessage(message: MessageInput!): SendResponse!
 }
 
@@ -38,6 +39,11 @@ type Subscription {
 input AuthInput {
     username: String!
     password: String!
+}
+
+type LoginResponse {
+    accessToken: String!
+    user: User!
 }
 
 

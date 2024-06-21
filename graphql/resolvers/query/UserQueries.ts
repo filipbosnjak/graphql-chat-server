@@ -9,7 +9,7 @@ import {
 
 import db from "../../../db/db";
 import { users } from "../../../db/schema";
-import { SolacePubSub } from "@solace-community/graphql-solace-subscriptions/dist/solace-pubsub";
+import { authUser } from "../authUtils/authUtils";
 
 export const getUserByUserNameResolver:
   | Resolver<
